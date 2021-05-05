@@ -9,9 +9,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-use App\Models\Admin;
-use App\Models\Agent;
-use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     /*
@@ -40,11 +37,9 @@ class RegisterController extends Controller
      * @return void
      */
     public function __construct()
-        {
-            $this->middleware('guest');
-            $this->middleware('guest:admin');
-            $this->middleware('guest:agent');
-        }
+    {
+        $this->middleware('guest');
+    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -74,36 +69,5 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
-
-    public function showAdminRegisterForm()
-    {
-        return view('auth.register', ['url' => 'admin']);
-    }
-    public function showAgentRegisterForm()
-    {
-        return view('auth.register', ['url' => 'agent']);
-    }
-
-    protected function createAdmin(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        $admin = Admin::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->intended('login/admin');
-    }
-
-    protected function createAgent(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        $writer = Agent::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->intended('login/agent');
     }
 }

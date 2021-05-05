@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+  
+use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,24 +19,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
-Route::get('/login/admin', 'App\Http\Controllers\Auth\LoginController@showAdminLoginForm');
-Route::get('/login/agent', 'App\Http\Controllers\Auth\LoginController@showAgentLoginForm');
-Route::get('/register/admin', 'App\Http\Controllers\Auth\RegisterController@showAdminRegisterForm');
-Route::get('/register/agent', 'App\Http\Controllers\Auth\RegisterController@showAgentRegisterForm');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('admin/home', 'App\Http\Controllers\HomeController@adminHome')->name('home')->middleware('is_admin');
 
-Route::post('/login/admin', 'App\Http\Controllers\Auth\LoginController@adminLogin');
-Route::post('/login/agent', 'App\Http\Controllers\Auth\LoginController@agentLogin');
-Route::post('/register/admin', 'App\Http\Controllers\Auth\RegisterController@createAdmin');
-Route::post('/register/agent', 'App\Http\Controllers\Auth\RegisterController@createAgent');
-
-// Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin')->middleware('auth:admin');
-Route::view('/agent', 'agent')->middleware('auth:agent');
+Route::group(['middleware' => ['is_admin']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('products', ProductController::class);
+});

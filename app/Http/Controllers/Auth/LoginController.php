@@ -6,9 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
-
-
 class LoginController extends Controller
 {
     /*
@@ -37,48 +34,30 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
-        {
-            $this->middleware('guest')->except('logout');
-            $this->middleware('guest:admin')->except('logout');
-            $this->middleware('guest:agent')->except('logout');
-        }
-
-        public function showAdminLoginForm()
-        {
-            return view('auth.login', ['url' => 'admin']);
-        }
-    
-        public function adminLogin(Request $request)
-        {
-            $this->validate($request, [
-                'email'   => 'required|email',
-                'password' => 'required|min:6'
-            ]);
-    
-            if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-    
-                return redirect()->intended('/admin');
-            }
-            return back()->withInput($request->only('email', 'remember'));
-        }
-
-
-        public function showAgentLoginForm()
     {
-        return view('auth.login', ['url' => 'agent']);
+        $this->middleware('guest')->except('logout');
     }
 
-    public function agentLogin(Request $request)
-    {
+    public function login(Request $request)
+    {   
+        $input = $request->all();
+   
         $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
-
-        if (Auth::guard('agent')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/agent');
+   
+        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        {
+            if (auth()->user()->is_admin == 1) {
+                return redirect()->route('home');
+            }else{
+                return redirect()->route('home');
+            }
+        }else{
+            return redirect()->route('login')
+                ->with('error','Email-Address And Password Are Wrong.');
         }
-        return back()->withInput($request->only('email', 'remember'));
+          
     }
 }
