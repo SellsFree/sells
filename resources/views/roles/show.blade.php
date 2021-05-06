@@ -1,6 +1,7 @@
-@extends('layouts.app')
-
-
+@extends('layouts.admin')
+@section('title')
+SellsFree || Show Role
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">

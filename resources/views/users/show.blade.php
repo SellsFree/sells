@@ -1,14 +1,15 @@
-@extends('layouts.app')
-
-
+@extends('layouts.admin')
+@section('title')
+SellsFree || Show User
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Show User</h2>
+            <p> Show User</p>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+        <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="{{ route('users.index') }}"> Back</a>
         </div>
     </div>
 </div>

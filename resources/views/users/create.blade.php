@@ -1,14 +1,15 @@
-@extends('layouts.app')
-
-
+@extends('layouts.admin')
+@section('title')
+SellsFree || Create New User
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create New User</h2>
+            <p>Create New User</p>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+        <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="{{ route('users.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -33,6 +34,7 @@
         <div class="form-group">
             <strong>Name:</strong>
             {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+            <input type="hidden" name="is_admin" value="1">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -66,5 +68,5 @@
 {!! Form::close() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+
 @endsection

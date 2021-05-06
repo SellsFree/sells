@@ -269,14 +269,30 @@
                             
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('users')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Users
-                                  
+                                Users Mangement
+                                    <i class="fas fa-angle-left right"></i>
+                                   
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{url('users')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Users</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('roles')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Roles</p>
+                                    </a>
+                                </li>  
+                            </ul>
                         </li>
+                       
                         <li class="nav-item">
                             <a href="{{url('types')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -306,21 +322,17 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <a href="{{url('district')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>District</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <a href="{{url('zone')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thana</p>
                                     </a>
-                                </li>
-                               
-                               
-                                
-                                
+                                </li>  
                             </ul>
                         </li>
                       <!--  <li class="nav-item">

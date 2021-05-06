@@ -1,14 +1,15 @@
-@extends('layouts.app')
-
-
+@extends('layouts.admin')
+@section('title')
+SellsFree || Create New Role
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create New Role</h2>
+           <u> <p>Create New Role</p></u>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+        <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="{{ route('roles.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -52,5 +53,5 @@
 {!! Form::close() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+
 @endsection
