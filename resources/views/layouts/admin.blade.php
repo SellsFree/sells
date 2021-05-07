@@ -292,7 +292,15 @@
                                 </li>  
                             </ul>
                         </li>
-                       
+                        <li class="nav-item">
+                            <a href="{{url('sellers')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Sellers
+                                  
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{url('types')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>

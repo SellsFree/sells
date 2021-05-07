@@ -32,6 +32,7 @@ Route::group(['middleware' => ['is_admin']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('types', 'App\Http\Controllers\admin\TypeController');   
+    Route::get('sellers', 'App\Http\Controllers\UserController@seller');   
     Route::get('types/delete/{id}', 'App\Http\Controllers\admin\TypeController@delete');
     Route::get('category', 'App\Http\Controllers\admin\CategoryController@index');
     Route::get('category/create', 'App\Http\Controllers\admin\CategoryController@create');    
@@ -55,3 +56,11 @@ Route::group(['middleware' => ['is_admin']], function() {
     Route::post('zone/update', 'App\Http\Controllers\admin\ZoneController@update');
   
 });
+
+// users 
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('profile', 'App\Http\Controllers\HomeController@profile');
+    Route::post('profile-update', 'App\Http\Controllers\HomeController@profile_update');
+
+    });
