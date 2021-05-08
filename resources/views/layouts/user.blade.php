@@ -293,12 +293,20 @@
                                 </li>  
                             </ul>
                         </li> -->
-                       
+                        <li class="nav-item">
+                            <a href="{{url('ads')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Ads 
+                                  
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{url('')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Ads Post
+                                     Post Your Ads
                                   
                                 </p>
                             </a>
