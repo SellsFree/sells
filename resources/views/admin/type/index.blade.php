@@ -9,9 +9,9 @@ Types
                 <h2>Type</h2>
             </div>
             <div class="text-right">
-                @can('type-create')
+               
                 <a class="btn btn-success btn-sm" href="{{ route('types.create') }}"> Create New Type</a>
-                @endcan
+            
             </div>
         </div>
     </div>
@@ -41,16 +41,16 @@ Types
 	        <td>
               
                     <a class="btn btn-info btn-sm" href="{{ route('types.show',$type->id) }}">Show</a>
-                    @can('type-edit')
+                    
                     <a class="btn btn-primary btn-sm" href="{{ route('types.edit',$type->id) }}">Edit</a>
-                    @endcan
+                   
 
 
                     @csrf
                     @method('DELETE')
-                    @can('type-delete')
+                   
                    <a class="btn btn-danger btn-sm" href="{{ url('types/delete/'.$type->id) }}">delete</a>
-                    @endcan
+                 
                 
 	        </td>
 	    </tr>
