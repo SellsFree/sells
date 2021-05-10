@@ -46,7 +46,7 @@ SellsFree || Sellers
             <td>{{ $user->created_at }}</td>
 
             <td>
-                <a class="btn btn-info btn-sm" href="#">ads (<?php $ads=App\Models\Post::where('user_id',$user->id)->count(); ?> {{$ads}})</a>
+                <a class="btn btn-info btn-sm" href="{{url('seller-ads/'.$user->id)}}">ads (<?php $ads=App\Models\Post::where('user_id',$user->id)->count(); ?> {{$ads}})</a>
                 <a class="btn btn-primary btn-sm" href="#">Report (<?php $report=App\Models\Report::where('user_id',$user->id)->count(); ?> {{$report}})</a>
                 <a class="btn btn-dark btn-sm" href="#">Details </a>
 

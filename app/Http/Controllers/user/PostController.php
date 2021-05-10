@@ -12,4 +12,6 @@ class PostController extends Controller
         $post=Post::where('user_id',Auth::user()->id)->first();
         return view('user.ads.index')->with('ads',$post);
     }
+
+    public function 
 }

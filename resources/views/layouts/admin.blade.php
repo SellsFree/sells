@@ -343,6 +343,15 @@
                                 </li>  
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{url('all-ads')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                   All Ads
+                                  
+                                </p>
+                            </a>
+                        </li>
                       <!--  <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>

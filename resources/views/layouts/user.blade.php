@@ -303,7 +303,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('')}}" class="nav-link">
+                            <a href="{{url('ads-post')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                      Post Your Ads

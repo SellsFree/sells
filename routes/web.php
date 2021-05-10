@@ -54,6 +54,9 @@ Route::group(['middleware' => ['is_admin']], function() {
     Route::get('zone/delete/{id}', 'App\Http\Controllers\Admin\ZoneController@delete');
     Route::post('zone/store', 'App\Http\Controllers\Admin\ZoneController@store');
     Route::post('zone/update', 'App\Http\Controllers\Admin\ZoneController@update');
+
+    Route::get('seller-ads/{id}','App\Http\Controllers\Admin\DashboardController@seller_ads');
+    Route::get('all-ads','App\Http\Controllers\Admin\DashboardController@all_ads');
   
 });
 
