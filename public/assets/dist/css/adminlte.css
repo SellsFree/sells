@@ -35677,6 +35677,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 .projects img.table-avatar,
 .projects .table-avatar img {
   border-radius: 50%;
+  height:250px;
   display: inline;
   width: 2.5rem;
 }

@@ -67,6 +67,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('profile-update', 'App\Http\Controllers\HomeController@profile_update');
     Route::get('ads', 'App\Http\Controllers\user\PostController@index');
     Route::get('ads-post', 'App\Http\Controllers\user\PostController@create');
+    Route::post('ads-create', 'App\Http\Controllers\user\PostController@store');
     Route::get('/getdistrict/{id}', 'App\Http\Controllers\user\PostController@district');
     Route::get('/getzone/{id}', 'App\Http\Controllers\user\PostController@zone');
 

@@ -46,7 +46,7 @@ input[type="file"] {
                         <div class="h5 text-center">
                        <b><u> Ads Create</u></b>  </div>
                        
-                        <form action="{{url('ads-post')}}" method="post" enctype="multipart/form-data" id="imageUploadForm">
+                        <form action="{{url('ads-create')}}" method="post" enctype="multipart/form-data" id="imageUploadForm">
                         @csrf
                             <div class="post-section post-type">
                                
@@ -85,7 +85,7 @@ input[type="file"] {
                                             <select class="form-control select-box" name="cat_id" id="cat">
                                                 <option value="0">--Select a category--</option>
                                                 @foreach($category as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                <option value="{{$cat->slug}}">{{$cat->name}}</option>
                                                 @endforeach
                                                
                                             </select>
@@ -334,7 +334,7 @@ input[type="file"] {
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="form-group">
-                                            <input type="submit" class="submit-btn" value="Submit Listing">
+                                            <input type="submit" class="submit-btn btn-dark" value="Submit">
                                         </div>
                                     </div>
                                 </div>
