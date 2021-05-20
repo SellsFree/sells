@@ -40,65 +40,82 @@ Seller || All Ads
           </div>
         </div>
         <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 1%">
-                          #
-                      </th>
-                      <th style="width: 20%">
-                         Ads
-                      </th>
-                      <th style="width: 30%">
-                         Images
-                      </th>
-                      
-                      <th style="width: 8%" class="text-center">
-                          Status
-                      </th>
-                      <th style="width: 20%">
-                      </th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                              </li>
-                          </ul>
-                      </td>
-                     
-                      <td class="project-state">
-                          <span class="badge badge-success">Active</span>
-                      </td>
-                    
-                  </tr>
-                 
-              </tbody>
-          </table>
+        <table class="table ">
+                <thead>
+                    <tr>
+                        <th style="width: 1%">
+                            #
+                        </th>
+                        <th style="width: 20%">
+                            Ads
+                        </th>
+                        <th style="width: 30%">
+                            Images
+                        </th>
+
+                        <th style="width: 8%" class="text-center">
+                            Status
+                        </th>
+                        <th style="width: 20%">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($ads as $ad)
+                    <tr>
+                        <td>
+                            {{$ad->id}}
+                        </td>
+                        <td>
+                            <a>
+                              Title :  {{$ad->title}}
+                            </a>
+                            <br />
+                            <a>
+                              Price :  {{$ad->price}}
+                            </a>
+                            <br />
+
+                            <a>
+                              Price Type:  {{$ad->pricetype}}
+                            </a>
+                            <br />
+                            <a>
+                              Condition :  {{$ad->condition}}
+                            </a>
+                            <br />
+                            <a>
+                            Authenticity  : {{$ad->authenticity}}
+                            </a>
+                            <br />
+                            <small>
+                                {{$ad->created_at}}
+                            </small>
+                        </td>
+                        <td>
+                            <?php $gellary= json_decode($ad->gimage);?>
+
+                             
+                               <span><img alt="Avatar" class="" src="{{asset('assets/images/ads/'.$gellary[0])}}" height ="120" width="150"></span>
+                                    
+                                
+                              
+
+                           
+                        </td>
+
+                        <td class="project-state">
+                        <?php if ($ad->status==null) {?>
+                          <span class="badge badge-danger">Inactive</span>
+                       <?php } else{?>
+                        <span class="badge badge-success">Active</span>
+                        <?php } ?>
+                        </td>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
         <!-- /.card-body -->
       </div>
